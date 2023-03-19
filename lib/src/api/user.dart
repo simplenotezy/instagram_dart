@@ -1,5 +1,7 @@
 import 'dart:async';
-import '../models/models.dart';
+
+import 'package:instagram/src/models/media/media.dart';
+import 'package:instagram/src/models/user/user.dart';
 
 /// An abstraction to extract user information from Instagram.
 abstract class InstagramUsersApi {
@@ -12,8 +14,7 @@ abstract class InstagramUsersApi {
   /// Get the most recent media published by a user.
   ///
   /// The public_content scope is required if the user is not the owner of the access token.
-  Future<List<Media>> getRecentMedia(String userId,
-      {String maxId, String minId, int count});
+  Future<List<Media>> getRecentMedia(String userId, {String maxId, String minId, int count});
 
   /// Get a list of users matching the query.
   Future<List<User>> search(String query, {int count});

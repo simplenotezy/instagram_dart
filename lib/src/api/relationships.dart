@@ -1,5 +1,7 @@
 import 'dart:async';
-import '../models/models.dart';
+
+import 'package:instagram/src/models/common/relationship.dart';
+import 'package:instagram/src/models/user/user.dart';
 
 /// An abstraction to extract relationship information from Instagram.
 abstract class InstagramRelationshipsApi {

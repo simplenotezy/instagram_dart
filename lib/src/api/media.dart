@@ -1,5 +1,6 @@
 import 'dart:async';
-import '../models/models.dart';
+
+import 'package:instagram/instagram.dart';
 
 /// An abstraction to extract media information from Instagram.
 abstract class InstagramMediaApi {

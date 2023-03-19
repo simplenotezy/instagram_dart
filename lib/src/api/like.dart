@@ -1,5 +1,6 @@
 import 'dart:async';
-import '../models/models.dart';
+
+import 'package:instagram/src/models/user/user.dart';
 
 /// An abstraction to extract like information from Instagram.
 abstract class InstagramLikesApi {
@@ -24,4 +25,3 @@ abstract class InstagramLikesApiMedia {
   /// The public_content scope is required for media that does not belong to the owner of the access_token.
   Future<bool> unlike();
 }
-

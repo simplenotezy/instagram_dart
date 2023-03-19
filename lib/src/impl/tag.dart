@@ -1,7 +1,10 @@
+import 'dart:async';
+
+import 'package:instagram/src/models/media/media.dart';
+import 'package:instagram/src/models/tag.dart';
+
 import '../api/tag.dart';
 import '../requestor.dart';
-import 'dart:async';
-import 'package:instagram/src/models/models.dart';
 
 class InstagramTagsApiImpl implements InstagramTagsApi {
   static const String _root = '/v1/tags';
@@ -17,18 +20,19 @@ class InstagramTagsApiImpl implements InstagramTagsApi {
   }
 
   @override
-  Future<List<Media>> getRecentMedia(String tagName,
-      {String maxTagId, String minTagId, int count}) {
+  Future<List<Media>> getRecentMedia(
+    String tagName, {
+    String? maxTagId,
+    String? minTagId,
+    int? count,
+  }) {
     Map<String, String> queryParameters = {};
 
     if (maxTagId != null) queryParameters['max_tag_id'] = maxTagId;
     if (minTagId != null) queryParameters['min_tag_id'] = minTagId;
     if (count != null) queryParameters['count'] = count.toString();
 
-    return requestor
-        .request('$_root/$tagName/media/recent',
-            queryParameters: queryParameters)
-        .then((r) {
+    return requestor.request('$_root/$tagName/media/recent', queryParameters: queryParameters).then((r) {
       return r.data.map((m) => new Media.fromJson(m)).toList();
     });
   }

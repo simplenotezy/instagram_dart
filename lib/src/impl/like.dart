@@ -1,5 +1,7 @@
+import 'package:instagram/src/models/user/user.dart';
+
 import '../api/like.dart';
-import '../models/models.dart';
+
 import '../requestor.dart';
 import 'dart:async';
 
@@ -11,15 +13,14 @@ class InstagramLikesApiImpl implements InstagramLikesApi {
 
   @override
   InstagramLikesApiMedia forMedia(String mediaId) {
-    return _media.putIfAbsent(
-        mediaId, () => new _InstagramLikesApiMediaImpl(mediaId, requestor));
+    return _media.putIfAbsent(mediaId, () => new _InstagramLikesApiMediaImpl(mediaId, requestor));
   }
 }
 
 class _InstagramLikesApiMediaImpl implements InstagramLikesApiMedia {
   final String mediaId;
   final Requestor requestor;
-  String _root;
+  late String _root;
 
   _InstagramLikesApiMediaImpl(this.mediaId, this.requestor) {
     _root = '/v1/media/$mediaId/likes';

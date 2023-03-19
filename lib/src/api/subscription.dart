@@ -1,5 +1,6 @@
 import 'dart:async';
-import '../models/models.dart';
+
+import 'package:instagram/src/models/subscription/subscription.dart';
 
 /// Manages Instagram subscriptions.
 ///

@@ -1,5 +1,6 @@
 import 'dart:async';
-import '../models/models.dart';
+
+import 'package:instagram/src/models/comment/comment.dart';
 
 /// An abstraction to extract comment information from Instagram.
 abstract class InstagramCommentsApi {

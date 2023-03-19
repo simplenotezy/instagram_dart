@@ -1,0 +1,19 @@
+{
+  "search.exclude": {
+    "**/*.g.dart": true,
+    "**/*.freezed.dart": true
+  },
+  "files.exclude": {
+    "**/*.g.dart": true,
+    "**/*.freezed.dart": true
+  },
+  "dart.lineLength": 150,
+  "[dart]": {
+    "editor.rulers": [150],
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": true,
+      "source.organizeImports": true
+    }
+  }
+}

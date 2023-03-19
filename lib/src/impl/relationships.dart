@@ -1,6 +1,9 @@
 import 'dart:async';
+
+import 'package:instagram/src/models/common/relationship.dart';
+import 'package:instagram/src/models/user/user.dart';
+
 import '../api/relationships.dart';
-import '../models/models.dart';
 import '../requestor.dart';
 
 class InstagramRelationshipsApiImpl implements InstagramRelationshipsApi {
@@ -13,8 +16,7 @@ class InstagramRelationshipsApiImpl implements InstagramRelationshipsApi {
 
   @override
   InstagramRelationshipsApiUser toUser(String userId) {
-    return _users.putIfAbsent(userId,
-        () => new _InstagramRelationshipsApiUserImpl(requestor, userId));
+    return _users.putIfAbsent(userId, () => new _InstagramRelationshipsApiUserImpl(requestor, userId));
   }
 
   @override
@@ -39,9 +41,8 @@ class InstagramRelationshipsApiImpl implements InstagramRelationshipsApi {
   }
 }
 
-class _InstagramRelationshipsApiUserImpl
-    implements InstagramRelationshipsApiUser {
-  String _root;
+class _InstagramRelationshipsApiUserImpl implements InstagramRelationshipsApiUser {
+  late String _root;
   final Requestor requestor;
 
   _InstagramRelationshipsApiUserImpl(this.requestor, String userId) {
@@ -50,8 +51,7 @@ class _InstagramRelationshipsApiUserImpl
 
   @override
   Future<Relationship> modify(String action) {
-    return requestor
-        .request(_root, method: 'POST', body: {'action': action}).then((r) {
+    return requestor.request(_root, method: 'POST', body: {'action': action}).then((r) {
       return new Relationship.fromJson(r.data);
     });
   }

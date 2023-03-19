@@ -1,4 +1,5 @@
-import '../models/models.dart';
+import 'package:instagram/src/models/user/user.dart';
+
 import 'comment.dart';
 import 'like.dart';
 import 'location.dart';
@@ -13,7 +14,7 @@ abstract class InstagramApi {
   String get accessToken;
 
   /// The user who is logged-in for this session.
-  User get user;
+  User? get user;
 
   /// An abstraction to extract comment information from Instagram.
   InstagramCommentsApi get comments;
